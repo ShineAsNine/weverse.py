@@ -84,9 +84,9 @@ class Notification:
         self.data: dict = data
         self.id: int = data["activityId"]
         self.title: str = data["title"]
-        self.message_ko: str = data["message"]["values"]["ko"]
-        self.message_ja: str = data["message"]["values"]["ja"]
-        self.message_en: str = data["message"]["values"]["en"]
+        self.message_ko: str = data["message"]["values"].get("ko", "")
+        self.message_ja: str = data["message"]["values"].get("ja", "")
+        self.message_en: str = data["message"]["values"].get("en", "")
         self.image_url: str | None = data.get("imageUrl")
         self.logo_image_url: str = data["logoImageUrl"]
         self.time_created: int = data["time"]

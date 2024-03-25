@@ -123,6 +123,7 @@ class WeverseClient:
             old_non_comment_noti, latest_non_comment_noti
         )
 
+        latest_comment_noti = []  # Disable comments
         new_artist_comments = await self._get_new_comment(
             old_comment_noti, latest_comment_noti
         )
@@ -187,7 +188,7 @@ class WeverseClient:
             A list of new notifications.
         """
         current_epoch_time = get_current_epoch_time()
-        epoch_time_difference = 600000  # Equivalent to 10 minutes.
+        epoch_time_difference = 600000 * 6 * 24  # Equivalent to 10 minutes. (24 hours)
         return [
             notification
             for notification in notifications
@@ -564,7 +565,7 @@ class WeverseClient:
     async def start(self) -> asyncio.Task:
         """Starts the Weverse Client."""
         await self.__fetcher.fetch_access_token()
-        await self.fetch_new_notifications()  # Populates the cache.
+        # await self.fetch_new_notifications()  # Populates the cache.
         logger.info(
             "Started listening for Weverse Notifications. "
             "You will be updated every %s seconds.",

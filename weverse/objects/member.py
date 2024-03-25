@@ -119,7 +119,7 @@ class ArtistProfile:
     def __init__(self, data: dict):
         self.official_name: str = data["officialName"]
         self.official_image_url: str = data["officialImageUrl"]
-        self.birthday: int = data["birthday"]["date"]
+        self.birthday: int = data["birthday"]["dateString"]
 
     def __repr__(self):
         return f"Artist Profile official_name={self.official_name}"
