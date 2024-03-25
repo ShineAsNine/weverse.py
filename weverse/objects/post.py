@@ -119,7 +119,7 @@ class PostLike:
         self.is_hidden_from_artist: bool = data["hideFromArtist"]
         self.is_membership_only: bool = data["membershipOnly"]
         self.has_product: bool = data["hasProduct"]
-        self.hashtags: list[str] = data["tags"]
+        self.hashtags: list[str] = data.get("tags", [])
         self.post_type: str = data["postType"]
         self.section_type: str = data["sectionType"]
         self.author: PostAuthor = PostAuthor(data["author"])
