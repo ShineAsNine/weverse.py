@@ -586,6 +586,7 @@ class WeverseClient:
                 await asyncio.sleep(self.stream_interval)
                 notifications, comments = await self.fetch_new_notifications()
 
+                notifications.reverse()
                 for notification in notifications:
                     await self.on_new_notification(notification)
 
