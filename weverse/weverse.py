@@ -123,12 +123,12 @@ class WeverseClient:
             old_non_comment_noti, latest_non_comment_noti
         )
 
-        latest_comment_noti = []  # Disable comments
-        new_artist_comments = await self._get_new_comment(
-            old_comment_noti, latest_comment_noti
-        )
+        # latest_comment_noti = []  # Disable comments
+        # new_artist_comments = await self._get_new_comment(
+        #     old_comment_noti, latest_comment_noti
+        # )
 
-        return new_non_comment_noti, new_artist_comments
+        return new_non_comment_noti, []
 
     def __sort_notifications(
         self, notifications: list[Notification]
@@ -159,8 +159,9 @@ class WeverseClient:
 
         for notification in notifications:
             if notification.post_type in comment_notification_types:
-                self.__cache.cache_comment_noti(notification)
-                comment_notifications.append(notification)
+                # self.__cache.cache_comment_noti(notification)
+                # comment_notifications.append(notification)
+                pass  # Disable comment cache
 
             else:
                 self.__cache.cache_notification(notification)
