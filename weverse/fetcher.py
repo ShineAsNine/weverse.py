@@ -44,13 +44,15 @@ class WeverseFetcher:
         """
         login_headers = {
             "content-type": "application/json",
-            "x-acc-app-secret": "5419526f1c624b38b10787e5c10b2a7a",
-            "x-acc-app-version": "abc",
-            "x-acc-language": "en",
-            "x-acc-service-id": "weverse",
-            "x-acc-trace-id": "abc",
+            "x-sdk-service-id": "weverse",
+            "x-sdk-language": "en",
+            "x-sdk-platform": "iOS",
+            "x-sdk-version": "3.3.0",
+            "x-sdk-service-secret": "9d79660be5ca452ab8c93bcaee310bb7",
+            "x-sdk-trace-id": "abc",
+            "x-sdk-app-version": "2.20.2",
         }
-        login_url = "https://accountapi.weverse.io/web/api/v2/auth/token/by-credentials"
+        login_url = "https://sdk.weverse.io/api/v2/auth/token/by-credentials"
 
         async with ClientSession() as client, client.post(
             login_url, headers=login_headers, json=self.__login_payload
