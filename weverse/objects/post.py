@@ -114,7 +114,7 @@ class PostLike:
         self.like_count: int = data["emotionCount"]
         self.comment_count: int = data["commentCount"]
         self.published_at: int = data["publishedAt"]
-        self.is_bookmarked: bool = data["bookmarked"]
+        self.is_bookmarked: bool = data.get("bookmarked", False)
         self.is_locked: bool = data["locked"]
         self.is_hidden_from_artist: bool = data["hideFromArtist"]
         self.is_membership_only: bool = data["membershipOnly"]
