@@ -35,7 +35,7 @@ class MediaLike(PostLike):
     def __init__(self, data: dict):
         super().__init__(data)
         self.title: str = data["title"]
-        self.thumbnail_url: str = data["extension"]["mediaInfo"]["thumbnail"]["url"]
+        self.thumbnail_url: str = data["extension"]["mediaInfo"]["thumbnail"].get("url")
 
     def __repr__(self):
         return f"Media media_id={self.id}, title={self.title}"
