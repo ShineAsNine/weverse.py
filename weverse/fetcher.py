@@ -9,7 +9,7 @@ import weverse.url
 
 from .utils import MISSING
 
-logger = logging.getLogger("__main__")
+logger = logging.getLogger(__name__)
 
 
 class WeverseFetcher:
