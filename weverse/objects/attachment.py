@@ -98,7 +98,15 @@ class Video:
     API call to fetch the video URL.
     """
 
-    __slots__ = ("data", "id", "duration", "height", "width", "thumbnail_url")
+    __slots__ = (
+        "data",
+        "id",
+        "duration",
+        "height",
+        "width",
+        "thumbnail_url",
+        "video_url",
+    )
 
     def __init__(self, data: dict):
         self.data: dict = data
@@ -107,6 +115,7 @@ class Video:
         self.height: int = data["uploadInfo"]["height"]
         self.width: int = data["uploadInfo"]["width"]
         self.thumbnail_url: str = data["uploadInfo"]["imageUrl"]
+        self.video_url: str | None = None
 
     def __eq__(self, other):
         if isinstance(other, self.__class__):
