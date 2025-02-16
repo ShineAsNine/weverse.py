@@ -61,7 +61,7 @@ class PartialCommunity:
     @property
     def url(self) -> str:
         """:class:`str`: Returns the URL of the Weverse Community's Artist tab."""
-        return f"https://weverse.io/{self.data['urlPath']}/artist"
+        return f"https://weverse.io/{self.data['artistCode']}/artist"
 
 
 class Community(PartialCommunity):
