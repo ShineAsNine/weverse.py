@@ -40,8 +40,8 @@ class PartialCommunity:
     def __init__(self, data: dict):
         self.data: dict = data
         self.id: int = data["communityId"]
-        self.name: str = data["communityName"]
-        self.logo_image_url: str = data["logoImage"]
+        self.name: str | None = data.get("communityName")
+        self.logo_image_url: str | None = data.get("logoImage")
 
     def __eq__(self, other):
         if isinstance(other, self.__class__):
@@ -53,7 +53,7 @@ class PartialCommunity:
         return f"Partial Community community_id={self.id}, name={self.name}"
 
     def __str__(self):
-        return self.name
+        return str(self.id)
 
     def __hash__(self):
         return hash(self.id)
