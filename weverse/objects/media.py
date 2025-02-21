@@ -90,7 +90,9 @@ class YoutubeMedia(MediaLike):
         super().__init__(data)
         self.video_duration: int = data["extension"]["youtube"]["playTime"]
         self.youtube_url: str = data["extension"]["youtube"]["videoPath"]
-        self.youtube_video_id: str = data["extension"]["youtube"].get("videoId", "")
+        self.youtube_video_id: str = data["extension"]["youtube"].get(
+            "youtubeVideoId", ""
+        )
         self.video_screen_orientation: str = data["extension"]["youtube"][
             "screenOrientation"
         ]
