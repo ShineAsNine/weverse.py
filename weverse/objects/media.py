@@ -79,12 +79,18 @@ class YoutubeMedia(MediaLike):
         The screen orientation of the video.
     """
 
-    __slots__ = ("video_duration", "youtube_url", "video_screen_orientation")
+    __slots__ = (
+        "video_duration",
+        "youtube_url",
+        "youtube_video_id",
+        "video_screen_orientation",
+    )
 
     def __init__(self, data: dict):
         super().__init__(data)
         self.video_duration: int = data["extension"]["youtube"]["playTime"]
         self.youtube_url: str = data["extension"]["youtube"]["videoPath"]
+        self.youtube_video_id: str = data["extension"]["youtube"].get("videoId", "")
         self.video_screen_orientation: str = data["extension"]["youtube"][
             "screenOrientation"
         ]
